@@ -1,8 +1,37 @@
 <?php
   class Users extends CI_Controller{
-    // Register
+
+    // Register people
     public function register(){
       $data['title'] =  'Sign Up';
+
+      // Validation
+      $this->form_validation->set_rules('name', 'Name', 'required');
+      $this->form_validation->set_rules('email', 'Email', 'required');
+      $this->form_validation->set_rules('password', 'Password', 'required');
+      $this->form_validation->set_rules('password2', 'Confirm Password', 'matches[password]');
+      $this->form_validation->set_rules('vegan', 'vegan', 'required');
+
+      if($this->form_validation->run() === FALSE){
+        $this->load->view('templates/header');
+        $this->load->view('users/register', $data);
+        $this->load->view('templates/footer');
+      } else {
+        // Password encryption
+        $encrypt_password = md5($this->input->post('password'));
+
+        $this->user_model->register($encrypt_password);
+
+        // Flash message
+        $this->session->set_flashdata('user_registered', 'Yeah ! You are now registered.');
+
+        redirect('foods');
+      }
+    }
+
+    // Register restaurant
+    public function register_restaurant(){
+      $data['title'] =  'Sign Up - Restaurant';
 
       $this->form_validation->set_rules('name', 'Name', 'required');
       $this->form_validation->set_rules('email', 'Email', 'required');
@@ -11,13 +40,16 @@
 
       if($this->form_validation->run() === FALSE){
         $this->load->view('templates/header');
-        $this->load->view('users/register', $data);
+        $this->load->view('users/register_restaurant', $data);
         $this->load->view('templates/footer');
       } else {
         // Password Encryption
         $encrypt_password = md5($this->input->post('password'));
 
-        $this->user_model->register($encrypt_password);
+        $this->user_model->register_restaurant($encrypt_password);
+
+        // Flash Message
+        $this->session->set_flashdata('user_registered', 'Yeah ! You are now registered.');
 
         redirect('foods');
       }
@@ -39,14 +71,22 @@
         $email = $this->input->post('email');
         $password = md5($this->input->post('password'));
 
-        // Login user
+        // Getting userid
         $user_id = $this->user_model->login($email, $password);
 
-        if($user_id){
+        // User type
+        $user_type = $this->user_model->get_user_type($user_id);
+
+        // Vegan or not ?
+        $user_vegan = $this->user_model->get_user_vegan($user_id);
+
+        if($user_id) {
           $user_data = array(
             'user_id' => $user_id,
             'email' => $email,
-            'logged_in' => true
+            'logged_in' => true,
+            'user_type' => $user_type,
+            'user_vegan' => $user_vegan
           );
 
           $this->session->set_userdata($user_data);
@@ -54,9 +94,9 @@
           redirect('foods');
         } else {
 
+          $this->session->set_flashdata('login_failed', 'Email/Password is wrong.');
 
-          redirect('foods');
-
+          redirect('users/login');
         }
       }
     }
@@ -66,6 +106,8 @@
       $this->session->unset_userdata('logged_in');
       $this->session->unset_userdata('user_id');
       $this->session->unset_userdata('email');
+      $this->session->unset_userdata('user_type');
+      $this->session->unset_userdata('user_vegan');
 
       redirect('users/login');
     }

@@ -24,9 +24,21 @@
           <?php if($this->session->userdata('logged_in')) : ?>
             <a class="nav-item nav-link" href="<?php echo base_url(); ?>users/logout">Logout</a>
           <?php endif; ?>
-
+          <?php if($this->session->userdata('user_type') != null) : ?>
+            <?php if($this->session->userdata('user_type') == 0) : ?>
+              <a class="btn btn-success" href="<?php echo base_url(); ?>foods/add_menu">Add Menu Items</a>
+            <?php endif; ?>
+          <?php endif; ?>
         </div>
       </div>
     </nav>
 
     <div class="container">
+      <!-- Flash Messages -->
+      <?php if($this->session->flashdata('user_registered')): ?>
+        <?php echo '<p class="alert alert-success">'.$this->session->flashdata('user_registered').'</p>'; ?>
+      <?php endif; ?>
+
+      <?php if($this->session->flashdata('login_failed')): ?>
+        <?php echo '<p class="alert alert-danger">'.$this->session->flashdata('login_failed').'</p>'; ?>
+      <?php endif; ?>

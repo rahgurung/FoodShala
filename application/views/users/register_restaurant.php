@@ -1,6 +1,6 @@
 <?php echo validation_errors(); ?>
 
-<?php echo form_open('users/register'); ?>
+<?php echo form_open('users/register_restaurant'); ?>
 <div class="row">
   <div class="col-md-4 col-md-offset-4">
     <h2 class="text-center"> <?= $title; ?> </h2>
@@ -14,13 +14,6 @@
     <small class="form-text text-muted">We'll never share your email with anyone else.</small>
   </div>
   <div class="form-group">
-  <label>Are You Vegan ?</label>
-  <select class="form-control" name="vegan">
-    <option value="1">Yes</option>
-    <option value="0">No</option>
-  </select>
-  </div>
-  <div class="form-group">
     <label>Password</label>
     <input name="password" type="password" class="form-control" placeholder="Password">
   </div>
@@ -29,7 +22,6 @@
     <input name="password2" type="password" class="form-control" placeholder="Comfirm Password">
   </div>
   <button type="submit" class="btn btn-primary btn-block">Register</button>
-  <a class="btn btn-success btn-block" href="register_restaurant" role="button" > Sell Food With Us </a>
 </div>
 </div>
 <?php echo form_close(); ?>
