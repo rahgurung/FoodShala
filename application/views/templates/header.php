@@ -16,18 +16,34 @@
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="collapse navbar-collapse">
         <div class="navbar-nav">
           <a class="nav-item nav-link active" href="<?php echo base_url(); ?>">Home <span class="sr-only">(current)</span></a>
           <a class="nav-item nav-link" href="<?php echo base_url(); ?>foods">Foods</a>
           <a class="nav-item nav-link" href="<?php echo base_url(); ?>about">About</a>
-          <?php if($this->session->userdata('logged_in')) : ?>
-            <a class="nav-item nav-link" href="<?php echo base_url(); ?>users/logout">Logout</a>
-          <?php endif; ?>
+
           <?php if($this->session->userdata('user_type') != null) : ?>
             <?php if($this->session->userdata('user_type') == 0) : ?>
               <a class="btn btn-success" href="<?php echo base_url(); ?>foods/add_menu">Add Menu Items</a>
             <?php endif; ?>
+          <?php endif; ?>
+          <?php if($this->session->userdata('user_type') != null) : ?>
+            <?php if($this->session->userdata('user_type') == 0) : ?>
+              <a class="btn btn-warning" href="<?php echo base_url(); ?>foods/view_orders">View Orders</a>
+            <?php endif; ?>
+          <?php endif; ?>
+          <?php if($this->session->userdata('user_type') != null) : ?>
+            <?php if($this->session->userdata('user_type') == 1) : ?>
+              <a class="btn btn-success" href="<?php echo base_url(); ?>foods/view_cart">View Cart</a>
+            <?php endif; ?>
+          <?php endif; ?>
+
+        </div>
+      </div>
+      <div class="collapse navbar-collapse justify-content-end">
+        <div class="navbar-nav">
+          <?php if($this->session->userdata('logged_in')) : ?>
+            <a class="nav-item nav-link" href="<?php echo base_url(); ?>users/logout">Logout ( <?php echo ucwords($this->session->userdata('name')); ?> )</a>
           <?php endif; ?>
         </div>
       </div>
@@ -41,4 +57,12 @@
 
       <?php if($this->session->flashdata('login_failed')): ?>
         <?php echo '<p class="alert alert-danger">'.$this->session->flashdata('login_failed').'</p>'; ?>
+      <?php endif; ?>
+
+      <?php if($this->session->flashdata('food_ordered')): ?>
+        <?php echo '<p class="alert alert-success">'.$this->session->flashdata('food_ordered').'</p>'; ?>
+      <?php endif; ?>
+
+      <?php if($this->session->flashdata('added_to_cart')): ?>
+        <?php echo '<p class="alert alert-success">'.$this->session->flashdata('added_to_cart').'</p>'; ?>
       <?php endif; ?>

@@ -1,11 +1,13 @@
 <?php
-  class Users extends CI_Controller{
+  class Users extends CI_Controller {
 
-    // Register people
-    public function register(){
+    /**
+    * Register people
+    **/
+    public function register() {
       $data['title'] =  'Sign Up';
 
-      // Validation
+      // Validation of form
       $this->form_validation->set_rules('name', 'Name', 'required');
       $this->form_validation->set_rules('email', 'Email', 'required');
       $this->form_validation->set_rules('password', 'Password', 'required');
@@ -25,14 +27,17 @@
         // Flash message
         $this->session->set_flashdata('user_registered', 'Yeah ! You are now registered.');
 
-        redirect('foods');
+        redirect('users/login');
       }
     }
 
-    // Register restaurant
-    public function register_restaurant(){
+    /**
+    * Register restaurant
+    **/
+    public function register_restaurant() {
       $data['title'] =  'Sign Up - Restaurant';
 
+      // Form validation
       $this->form_validation->set_rules('name', 'Name', 'required');
       $this->form_validation->set_rules('email', 'Email', 'required');
       $this->form_validation->set_rules('password', 'Password', 'required');
@@ -51,12 +56,14 @@
         // Flash Message
         $this->session->set_flashdata('user_registered', 'Yeah ! You are now registered.');
 
-        redirect('foods');
+        redirect('users/login');
       }
     }
 
-    // Login
-    public function login(){
+    /**
+    * login functionality ;)
+    **/
+    public function login() {
       $data['title'] =  'Log In';
 
       $this->form_validation->set_rules('email', 'Email', 'required');
@@ -71,7 +78,7 @@
         $email = $this->input->post('email');
         $password = md5($this->input->post('password'));
 
-        // Getting userid
+        // Getting user_id
         $user_id = $this->user_model->login($email, $password);
 
         // User type
@@ -80,13 +87,17 @@
         // Vegan or not ?
         $user_vegan = $this->user_model->get_user_vegan($user_id);
 
+        // name
+        $name = $this->user_model->get_user_name($user_id);
+
         if($user_id) {
           $user_data = array(
             'user_id' => $user_id,
             'email' => $email,
             'logged_in' => true,
             'user_type' => $user_type,
-            'user_vegan' => $user_vegan
+            'user_vegan' => $user_vegan,
+            'name' => $name
           );
 
           $this->session->set_userdata($user_data);
@@ -101,7 +112,11 @@
       }
     }
 
-    public function logout(){
+    /**
+    * Logout functionality
+    **/
+    public function logout() {
+
       // Unset user data
       $this->session->unset_userdata('logged_in');
       $this->session->unset_userdata('user_id');

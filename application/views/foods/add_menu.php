@@ -9,6 +9,13 @@
     <input name="name" type="text" class="form-control" placeholder="Enter name of food.">
   </div>
   <div class="form-group">
+  <label>Food Type</label>
+  <select class="form-control" name="veg">
+    <option value="1">Veg</option>
+    <option value="0">Non- Veg</option>
+  </select>
+  </div>
+  <div class="form-group">
     <label>Price</label>
     <input name="price" type="number" class="form-control" placeholder="Enter price.">
   </div>

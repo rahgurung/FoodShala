@@ -11,6 +11,16 @@
       }
     }
 
+    public function get_user_name($user_id) {
+      $this->db->where('id', $user_id);
+      $result = $this->db->get('users');
+      if($result->num_rows() == 1){
+        return $result->row(0)->name;
+      } else {
+        return false;
+      }
+    }
+
     public function get_user_vegan($user_id) {
       $this->db->where('id', $user_id);
       $result = $this->db->get('users');

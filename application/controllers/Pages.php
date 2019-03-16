@@ -1,5 +1,9 @@
 <?php
 	class Pages extends CI_Controller{
+
+		/**
+		* General function which serves basic pages.
+		**/
 		public function view($page = 'home'){
 			if(!file_exists(APPPATH.'views/pages/'.$page.'.php')){
 				show_404();
