@@ -1,6 +1,9 @@
 <?php
-  class User_model extends CI_Model{
+  class User_model extends CI_Model {
 
+    /**
+    * Extracting user type.
+    **/
     public function get_user_type($user_id) {
       $this->db->where('id', $user_id);
       $result = $this->db->get('users');
@@ -11,6 +14,9 @@
       }
     }
 
+    /**
+    * Extracting name.
+    **/
     public function get_user_name($user_id) {
       $this->db->where('id', $user_id);
       $result = $this->db->get('users');
@@ -21,6 +27,9 @@
       }
     }
 
+    /**
+    * Extracting user nature.( veg or non-veg )
+    **/
     public function get_user_vegan($user_id) {
       $this->db->where('id', $user_id);
       $result = $this->db->get('users');
@@ -31,7 +40,10 @@
       }
     }
 
-    public function login($email, $password){
+    /**
+    * Login functionality
+    **/
+    public function login($email, $password) {
       $this->db->where('email', $email);
       $this->db->where('password', $password);
       $result = $this->db->get('users');
@@ -42,6 +54,9 @@
       }
     }
 
+    /**
+    * Register functionality for people.
+    **/
     public function register($encrypt_password) {
       // User data in form of array
       $data = array(
@@ -56,6 +71,9 @@
       return $this->db->insert('users', $data);
     }
 
+    /**
+    * Register functionality for restaurants.
+    **/
     public function register_restaurant($encrypt_password) {
       // User data in form of array
       $data = array(

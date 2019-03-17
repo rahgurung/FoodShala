@@ -69,7 +69,7 @@
       $this->form_validation->set_rules('email', 'Email', 'required');
       $this->form_validation->set_rules('password', 'Password', 'required');
 
-      if($this->form_validation->run() === FALSE){
+      if($this->form_validation->run() === FALSE) {
         $this->load->view('templates/header');
         $this->load->view('users/login', $data);
         $this->load->view('templates/footer');
@@ -123,8 +123,8 @@
       $this->session->unset_userdata('email');
       $this->session->unset_userdata('user_type');
       $this->session->unset_userdata('user_vegan');
+      $this->session->unset_userdata('name');
 
       redirect('users/login');
     }
-
   }
