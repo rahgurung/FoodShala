@@ -26,6 +26,14 @@ class Food_model extends CI_Model{
     return $this->db->insert('cart', $data);
   }
 
+  public function delete_food_from_cart($restaurant_id, $people_id, $food_id) {
+    $this->db->where('restaurant_id', $restaurant_id);
+    $this->db->where('people_id', $people_id);
+    $this->db->where('food_id', $food_id);
+    $this->db->limit(1);
+    $this->db->delete('cart');
+  }
+
   public function get_cart_foods($user_id) {
     $query = $this->db->where('people_id', $user_id);
     $result = $this->db->get('cart');

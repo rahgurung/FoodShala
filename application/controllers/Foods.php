@@ -84,6 +84,33 @@ class Foods extends CI_Controller {
   }
 
   /**
+  * Order food from cart.
+  **/
+  public function order_cart($food_id) {
+    if($this->session->userdata('user_type') != null) {
+      if($this->session->userdata('user_type') == 1) {
+
+          $restaurant_id = $this->food_model->get_restaurant_id($food_id);
+
+          $people_id = $this->session->userdata('user_id');
+
+          $this->food_model->order_food($restaurant_id,$people_id,$food_id);
+
+          $this->food_model->delete_food_from_cart($restaurant_id, $people_id, $food_id);
+
+          // Flash message
+          $this->session->set_flashdata('food_ordered', 'Your food is ordered.');
+
+          redirect('foods');
+      } else {
+        print_r('Sorry a restaurant can\'t order food. :(');
+      }
+    } else {
+      print_r('please log in, :)');
+    }
+  }
+
+  /**
   * Order food as a user.
   **/
   public function order_food($food_id) {
