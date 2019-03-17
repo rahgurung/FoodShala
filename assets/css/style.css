@@ -6,3 +6,26 @@
   width: 50%;
   margin-left: 25%;
 }
+
+.container {
+  padding: 20px;
+}
+
+#main_nav_title {
+  font-size: 30px;
+  font-family: 'Cookie', cursive;
+}
+
+.navbar-custom {
+  background-color: #d8d8d8 !important;
+}
+
+.home_page {
+  width: 20%;
+  margin-top: 30px;
+}
+
+.food-page {
+  float: right;
+  margin-left: 5px;
+}

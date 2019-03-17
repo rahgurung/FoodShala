@@ -9,10 +9,14 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <!-- Imported Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet">
+
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <span class="navbar-brand">FoodShala</span>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-custom">
+      <span class="navbar-brand" id="main_nav_title" >FoodShala</span>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -24,7 +28,7 @@
 
           <?php if($this->session->userdata('user_type') != null) : ?>
             <?php if($this->session->userdata('user_type') == 0) : ?>
-              <a class="btn btn-success" href="<?php echo base_url(); ?>foods/add_menu">Add Menu Items</a>
+              <a class="btn btn-info" style="margin-right:10px;" href="<?php echo base_url(); ?>foods/add_menu">Add Menu Items</a>
             <?php endif; ?>
           <?php endif; ?>
           <?php if($this->session->userdata('user_type') != null) : ?>
@@ -34,7 +38,7 @@
           <?php endif; ?>
           <?php if($this->session->userdata('user_type') != null) : ?>
             <?php if($this->session->userdata('user_type') == 1) : ?>
-              <a class="btn btn-success" href="<?php echo base_url(); ?>foods/view_cart">View Cart</a>
+              <a class="btn btn-info" href="<?php echo base_url(); ?>foods/view_cart">View Cart</a>
             <?php endif; ?>
           <?php endif; ?>
 
@@ -43,7 +47,7 @@
       <div class="collapse navbar-collapse justify-content-end">
         <div class="navbar-nav">
           <?php if($this->session->userdata('logged_in')) : ?>
-            <a class="nav-item nav-link" href="<?php echo base_url(); ?>users/logout">Logout ( <?php echo ucwords($this->session->userdata('name')); ?> )</a>
+            <a class="btn btn-danger" href="<?php echo base_url(); ?>users/logout">Logout ( <?php echo ucwords($this->session->userdata('name')); ?> )</a>
           <?php endif; ?>
         </div>
       </div>
