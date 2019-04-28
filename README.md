@@ -7,3 +7,11 @@ A Zomato/Swiggy clone app which have following features:
 - Order Food
 - Add Food Menu
 - FoodCart
+
+## How to Use
+1) Make sure you have PHP installed.
+1) Make a new db `foodshala` and import the `foodshala.sql`.
+2) Serve the repo using your favorite server.
+
+## Contribution
+PRs are welcome. :)
