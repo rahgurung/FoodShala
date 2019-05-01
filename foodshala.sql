@@ -54,7 +54,8 @@ CREATE TABLE `foods` (
   `user_id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
   `price` int(11) NOT NULL,
-  `veg` int(11) NOT NULL DEFAULT '1'
+  `veg` int(11) NOT NULL DEFAULT '1',
+	`image` varchar(245) DEFAULT NULL,
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
