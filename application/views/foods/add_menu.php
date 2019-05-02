@@ -14,15 +14,15 @@
     <option value="1">Veg</option>
     <option value="0">Non- Veg</option>
   </select>
-	</div>
+  </div>
   <div class="form-group">
     <label>Price</label>
     <input name="price" type="number" class="form-control" placeholder="Enter price.">
-	</div>
-	<div class="form-group">
-		<label>Image</label>
-		<input type="file" name="image" />
-	</div>
+  </div>
+  <div class="form-group">
+    <label>Image</label>
+    <input type="file" name="image" />
+  </div>
   <button type="submit" class="btn btn-primary btn-block">Add</button>
 </div>
 </div>

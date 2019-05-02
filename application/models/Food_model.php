@@ -20,34 +20,34 @@ class Food_model extends CI_Model{
       'veg' => $this->input->post('veg')
     );
 
-		if($_FILES["image"]["name"] !== null) {
-			// create a slug from user name
-			$slug     = url_title($this->session->userdata('name'), 'dash', true);
-			// create a hashed time
-			$time     = substr(md5(time()), 1, 8);
-			// get file extension
-			$fileext  = pathinfo($_FILES["image"]["name"], PATHINFO_EXTENSION);
-			// slug by name, time hashed and extension
-			$filename = "{$slug}-{$time}.{$fileext}";
+    if($_FILES["image"]["name"] !== null) {
+      // create a slug from user name
+      $slug     = url_title($this->session->userdata('name'), 'dash', true);
+      // create a hashed time
+      $time     = substr(md5(time()), 1, 8);
+      // get file extension
+      $fileext  = pathinfo($_FILES["image"]["name"], PATHINFO_EXTENSION);
+      // slug by name, time hashed and extension
+      $filename = "{$slug}-{$time}.{$fileext}";
 
-			$config = array(
-				'upload_path'   => './assets/img/',
-				'allowed_types' => 'gif|jpg|png',
-				'max_sizes'     => '100',
-				'max_width'     => '1024',
-				'max_height'    => '768',
-				'file_name'     => $filename
-			);
-			$this->load->library('upload', $config);
-			
-			// if uploaded, then send the path to database
-			if($this->upload->do_upload('image')) {
-				// getting the errors
-				// $this->upload->display_errors()
-				$data['image'] = "assets/img/" . $filename;
-			}
-		}
-		
+      $config = array(
+        'upload_path'   => './assets/img/',
+        'allowed_types' => 'gif|jpg|png',
+        'max_sizes'     => '100',
+        'max_width'     => '1024',
+        'max_height'    => '768',
+        'file_name'     => $filename
+      );
+      $this->load->library('upload', $config);
+      
+      // if uploaded, then send the path to database
+      if($this->upload->do_upload('image')) {
+        // getting the errors
+        // $this->upload->display_errors()
+        $data['image'] = "assets/img/" . $filename;
+      }
+    }
+    
     return $this->db->insert('foods', $data);
   }
 
@@ -102,9 +102,9 @@ class Food_model extends CI_Model{
   * Extracting all foods.
   **/
   public function get_foods() {
-	   $query = $this->db->get('foods');
-		 return $query->result_array();
-	}
+     $query = $this->db->get('foods');
+     return $query->result_array();
+  }
 
   /**
   * Extracting restaurant_id
