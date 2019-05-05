@@ -3,7 +3,7 @@
   <?php foreach($foods as $key => $food) : ?>
   <div class="col-12 col-sm-6 col-md-4">
     <div class="card mb-4">
-      <img class="card-img-top" src="https://via.placeholder.com/500x300" alt="Card image cap">
+      <img class="card-img-top" src="https://via.placeholder.com/500x300" alt="Food">
       <div class="card-body p-3">
         <h4 class="card-title" style="padding-top:15px;"> <?php echo $food['name']; ?> </h4> 
         <span ><?php echo $food['price']; ?> </span> - 

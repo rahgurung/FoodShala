@@ -2,7 +2,7 @@
   <head>
     <title> FoodShala: Meals That Matter </title>
 
-    <!-- Meta Tags -->
+    <!-- Meta tags -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Imported stylesheet -->
