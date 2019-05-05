@@ -1,6 +1,10 @@
 <html>
   <head>
     <title> FoodShala: Meals That Matter </title>
+    
+    <!-- Meta tags -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <!-- Imported stylesheet -->
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/style.css">
 
