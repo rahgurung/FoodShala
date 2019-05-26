@@ -31,7 +31,7 @@ class Food_model extends CI_Model{
       $filename = "{$slug}-{$time}.{$fileext}";
 
       $config = array(
-        'upload_path'   => './assets/img/',
+        'upload_path'   => './assets/img/upload/',
         'allowed_types' => 'gif|jpg|png',
         'max_sizes'     => '100',
         'max_width'     => '1024',
@@ -44,7 +44,7 @@ class Food_model extends CI_Model{
       if($this->upload->do_upload('image')) {
         // getting the errors
         // $this->upload->display_errors()
-        $data['image'] = "assets/img/" . $filename;
+        $data['image'] = "{$config['upload_path']}{$filename}";
       }
     }
     
