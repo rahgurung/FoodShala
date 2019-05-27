@@ -1,3 +1,5 @@
+!.gitkeep
+
 .DS_Store
 
 application/cache/*
@@ -9,6 +11,9 @@ application/logs/*
 !application/*/.htaccess
 
 composer.lock
+
+assets/img/uploads/*
+!assets/img/uploads/.gitkeep
 
 user_guide_src/build/*
 user_guide_src/cilexer/build/*
@@ -29,7 +34,3 @@ user_guide_src/cilexer/pycilexer.egg-info/*
 *.sublime-project
 /tests/tests/
 /tests/results/
-
-!.gitkeep
-assets/img/uploads/*
-!assets/img/uploads/index.html

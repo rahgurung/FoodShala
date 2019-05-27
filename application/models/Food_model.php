@@ -31,7 +31,7 @@ class Food_model extends CI_Model{
       $filename = "{$slug}-{$time}.{$fileext}";
 
       $config = array(
-        'upload_path'   => './assets/img/upload/',
+        'upload_path'   => './assets/img/uploads/',
         'allowed_types' => 'gif|jpg|png',
         'max_sizes'     => '100',
         'max_width'     => '1024',
