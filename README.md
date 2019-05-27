@@ -7,6 +7,7 @@ A Zomato/Swiggy clone app which have following features:
 - Order Food
 - Add Food Menu
 - FoodCart
+- Image Upload
 
 ## How to Use
 1) Make sure you have PHP installed.
