@@ -3,7 +3,12 @@
 	<?php foreach($foods as $key => $food) : ?>
 	<div class="col-12 col-sm-6 col-md-4">
 		<div class="card mb-4">
-			<img class="card-img-top" src="https://via.placeholder.com/500x300" alt="Card image cap">
+			<?php
+				if($food['image'] !== null ) {
+					// please! config size and position of this one!
+					echo "<img class=\"card-img-top\" src=\"{$food['image']}\" alt=\"{$food['name']}\">";
+				}
+			?>
 			<div class="card-body p-3">
 				<h4 class="card-title" style="padding-top:15px;"> <?php echo $food['name']; ?> </h4>
 				<span ><?php echo $food['price']; ?> </span> -
