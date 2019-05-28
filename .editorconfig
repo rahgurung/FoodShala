@@ -11,5 +11,20 @@ insert_final_newline = true
 [*]
 charset = utf-8
 
-# Tab indentation (no size specified)
-indent_style = tab
+# space indentation (2)
+indent_style = space
+indent_size = 2
+
+# Ignore system
+[system/**]
+insert_final_newline = none
+trim_trailing_whitespace = none
+indent_style = none
+indent_size = none
+
+# Ignore directories from application
+[application/{cache,config,libraries}/**]
+insert_final_newline = none
+trim_trailing_whitespace = none
+indent_style = none
+indent_size = none
