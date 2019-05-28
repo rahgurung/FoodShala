@@ -1,6 +1,11 @@
 <p align="center"><img src="https://image.flaticon.com/icons/svg/135/135646.svg" align="center" width="175"></p>
 <h1 align="center">FoodShala</h1>
-
+<p align="center"><img src="https://img.shields.io/github/issues/gurrrung/FoodShala.svg" align="center"> 
+<img src="https://img.shields.io/github/forks/gurrrung/FoodShala.svg" align="center"> 
+<img src="https://img.shields.io/github/stars/gurrrung/FoodShala.svg" align="center"> 
+<img src="https://img.shields.io/github/license/gurrrung/FoodShala.svg" align="center">  
+<img src="https://img.shields.io/badge/PR-Welcome-brightgreen.svg" align="center"> 
+<img src="https://img.shields.io/twitter/url/https/github.com/gurrrung/FoodShala.svg?style=social" align="center"></p>
 
 A Zomato/Swiggy clone app which have following features:
 - User Sign-In/Sign-Out
