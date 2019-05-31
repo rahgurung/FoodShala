@@ -4,8 +4,12 @@
 <img src="https://img.shields.io/github/forks/gurrrung/FoodShala.svg" align="center"> 
 <img src="https://img.shields.io/github/stars/gurrrung/FoodShala.svg" align="center"> 
 <img src="https://img.shields.io/github/license/gurrrung/FoodShala.svg" align="center">  
-<img src="https://img.shields.io/badge/PR-Welcome-brightgreen.svg" align="center"> 
-<img src="https://img.shields.io/twitter/url/https/github.com/gurrrung/FoodShala.svg?style=social" align="center"></p>
+<img src="https://img.shields.io/badge/PR-Welcome-brightgreen.svg" align="center">
+</p>
+<p align="center">
+<img src="https://img.shields.io/twitter/url/https/github.com/gurrrung/FoodShala.svg?style=social" align="center">
+<img src="https://github.styleci.io/repos/174348789/shield" align="center">
+</p>
 
 A Zomato/Swiggy clone app which have following features:
 - User Sign-In/Sign-Out
