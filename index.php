@@ -97,7 +97,7 @@ switch (ENVIRONMENT) {
 
 /*
  *---------------------------------------------------------------
- * APPLICATION DIRECTORY NAME
+ * ATESTINGAPPLICATION DIRECTORY NAME
  *---------------------------------------------------------------
  *
  * If you want this front controller to use a different "application"
