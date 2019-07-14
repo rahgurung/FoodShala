@@ -171,7 +171,7 @@ class CI_Cache_wincache extends CI_Driver
     /**
      * Cache Info.
      *
-     * @return	mixed	array on success, false on failure
+     * @return mixed array on success, false on failure
      */
     public function cache_info()
     {
