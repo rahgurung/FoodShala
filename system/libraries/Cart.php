@@ -419,7 +419,7 @@ class CI_Cart
      *
      * @param	int
      *
-     * @return	bool
+     * @return bool
      */
     public function remove($rowid)
     {
