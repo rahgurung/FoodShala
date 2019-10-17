@@ -21,11 +21,18 @@
 }
 
 .home_page {
-  width: 20%;
   margin-top: 30px;
+  text-align: center;
 }
 
 .food-page {
   float: right;
   margin-left: 5px;
+}
+
+.home-button {
+  line-height: 35px !important;
+  width: 200px;
+  margin-top: 10px;
+  margin-left: 10px;
 }
