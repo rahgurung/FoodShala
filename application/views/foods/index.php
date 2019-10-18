@@ -14,8 +14,8 @@
 				<span ><?php echo $food['price']; ?> </span> -
 				<span class="font-weight-bold"><?php echo $rnames[$key]; ?> </span>
 				<hr>
-				<a class="btn btn-dark food-page" role="button" href="/foods/order_food/<?php echo $food['id']  ?>"> Order </a>
-				<a class="btn btn-success food-page" role="button" href="/foods/add_to_cart/<?php echo $food['id']  ?>"> Add to Cart </a>
+				<a class="btn btn-dark fs-food-page" role="button" href="/foods/order_food/<?php echo $food['id']  ?>"> Order </a>
+				<a class="btn btn-success fs-food-page" role="button" href="/foods/add_to_cart/<?php echo $food['id']  ?>"> Add to Cart </a>
 			</div>
     </div>
 	</div>
